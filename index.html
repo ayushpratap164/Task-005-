@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather App</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+.container{
+    background:white;
+    padding:30px;
+    width:350px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+h1{
+    margin-bottom:20px;
+    color:#2c5364;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    background:#2c5364;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#203a43;
+}
+
+#weatherResult{
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🌦 Weather App</h1>
+
+    <input type="text" id="cityInput" placeholder="Enter City Name">
+    <button onclick="getWeather()">Search</button>
+
+    <div id="weatherResult"></div>
+</div>
+
+<script>
+function getWeather(){
+
+    let city = document.getElementById("cityInput").value;
+
+    if(city===""){
+        alert("Please enter city name");
+        return;
+    }
+
+    document.getElementById("weatherResult").innerHTML = `
+        <h2>${city}</h2>
+        <p>🌡 Temperature: 28°C</p>
+        <p>☁ Weather: Clear Sky</p>
+        <p>💧 Humidity: 65%</p>
+        <p>🌬 Wind Speed: 12 km/h</p>
+    `;
+}
+</script>
+
+</body>
+</html>
